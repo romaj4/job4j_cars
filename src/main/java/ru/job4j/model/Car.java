@@ -25,11 +25,16 @@ public class Car {
                     @JoinColumn(name = "car_id", nullable = false, updatable = false)})
     private Set<Driver> drivers = new HashSet<>();
 
-    public static Car of(String brand, String model, Engine engine) {
+    @ManyToOne
+    @JoinColumn(name = "carBody_id")
+    private CarBody carBody;
+
+    public static Car of(String brand, String model, Engine engine, CarBody carBody) {
         Car car = new Car();
         car.brand = brand;
         car.model = model;
         car.engine = engine;
+        car.carBody = carBody;
         return car;
     }
 
