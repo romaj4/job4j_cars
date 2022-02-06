@@ -18,13 +18,6 @@ public class Car {
     @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
     private Engine engine;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "history_owner", joinColumns = {
-            @JoinColumn(name = "driver_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "car_id", nullable = false, updatable = false)})
-    private Set<Driver> drivers = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "carBody_id")
     private CarBody carBody;
@@ -70,14 +63,6 @@ public class Car {
         this.engine = engine;
     }
 
-    public Set<Driver> getDrivers() {
-        return drivers;
-    }
-
-    public void setDrivers(Set<Driver> drivers) {
-        this.drivers = drivers;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -101,7 +86,7 @@ public class Car {
                 + ", brand='" + brand
                 + ", model='" + model
                 + ", engine=" + engine
-                + ", drivers=" + drivers
+                + ", carBody=" + carBody
                 + '}';
     }
 }

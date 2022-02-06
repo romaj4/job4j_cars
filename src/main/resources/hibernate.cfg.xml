@@ -18,7 +18,6 @@
         <property name="hibernate.jdbc.time_zone">Europe/Moscow</property>
 
         <mapping class="ru.job4j.model.Car"/>
-        <mapping class="ru.job4j.model.Driver"/>
         <mapping class="ru.job4j.model.Engine"/>
         <mapping class="ru.job4j.model.Advert"/>
         <mapping class="ru.job4j.model.CarBody"/>
